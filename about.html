@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Page Title</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  margin: 0;
+}
+
+/* Header/logo Title */
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #ebe7e0;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+  overflow: hidden;
+  background-color: #35322a;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+  background-color: #ebe7e0;
+  color: black;
+}
+
+/* Active/current link */
+.navbar a.active {
+  background-color: #666;
+  color: white;
+}
+
+/* Column container */
+.row {  
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  
+  background-color: #ebe7e0;
+  padding: 40px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #35322a;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:900');
+
+svg {
+  background: #ebe7e0;
+}
+
+text {
+  fill: #35322a;
+  filter: url('#money');
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 120px;
+  font-weight: 900;
+}
+
+html {
+  align-items: center;
+  background: #ebe7e0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 600px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<svg width='600' height='200'>
+  <filter id='money'>
+    <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand'/>
+
+    <feOffset in='expand' dx='1' dy='1' result='shadow_1'/>
+    <feOffset in='expand' dx='2' dy='2' result='shadow_2'/>
+    <feOffset in='expand' dx='3' dy='3' result='shadow_3'/>
+    <feOffset in='expand' dx='4' dy='4' result='shadow_4'/>
+    <feOffset in='expand' dx='5' dy='5' result='shadow_5'/>
+    <feOffset in='expand' dx='6' dy='6' result='shadow_6'/>
+    <feOffset in='expand' dx='7' dy='7' result='shadow_7'/>
+
+    <feMerge result='shadow'>
+      <feMergeNode in='expand'/>
+      <feMergeNode in='shadow_1'/>
+      <feMergeNode in='shadow_2'/>
+      <feMergeNode in='shadow_3'/>
+      <feMergeNode in='shadow_4'/>
+      <feMergeNode in='shadow_5'/>
+      <feMergeNode in='shadow_6'/>
+      <feMergeNode in='shadow_7'/>
+    </feMerge>
+
+    <feFlood flood-color='#ebe7e0'/>
+    <feComposite in2='shadow' operator='in' result='shadow'/>
+
+    <feMorphology in='shadow' operator='dilate' radius='1' result='border'/>
+    <feFlood flood-color='#35322a' result='border_color'/>
+    <feComposite in2='border' operator='in' result='border'/>
+
+    <feOffset in='border' dx='1' dy='1' result='secondShadow_1'/>
+    <feOffset in='border' dx='2' dy='2' result='secondShadow_2'/>
+    <feOffset in='border' dx='3' dy='3' result='secondShadow_3'/>
+    <feOffset in='border' dx='4' dy='4' result='secondShadow_4'/>
+    <feOffset in='border' dx='5' dy='5' result='secondShadow_5'/>
+    <feOffset in='border' dx='6' dy='6' result='secondShadow_6'/>
+    <feOffset in='border' dx='7' dy='7' result='secondShadow_7'/>
+    <feOffset in='border' dx='8' dy='8' result='secondShadow_8'/>
+    <feOffset in='border' dx='9' dy='9' result='secondShadow_9'/>
+    <feOffset in='border' dx='10' dy='10' result='secondShadow_10'/>
+    <feOffset in='border' dx='11' dy='11' result='secondShadow_11'/>
+
+    <feMerge result='secondShadow'>
+      <feMergeNode in='border'/>
+      <feMergeNode in='secondShadow_1'/>
+      <feMergeNode in='secondShadow_2'/>
+      <feMergeNode in='secondShadow_3'/>
+      <feMergeNode in='secondShadow_4'/>
+      <feMergeNode in='secondShadow_5'/>
+      <feMergeNode in='secondShadow_6'/>
+      <feMergeNode in='secondShadow_7'/>
+      <feMergeNode in='secondShadow_8'/>
+      <feMergeNode in='secondShadow_9'/>
+      <feMergeNode in='secondShadow_10'/>
+      <feMergeNode in='secondShadow_11'/>
+    </feMerge>
+
+    <feImage x='0' y='0' width='600' height='200' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/>
+    <feComposite in2='secondShadow' operator='in' result='secondShadow'/>
+
+    <feMerge>
+      <feMergeNode in='secondShadow'/>
+      <feMergeNode in='border'/>
+      <feMergeNode in='shadow'/>
+      <feMergeNode in='SourceGraphic'/>
+    </feMerge>
+  </filter>
+
+  <text dominant-baseline='middle' text-anchor='middle' x='50%' y='50%'>
+    Gold, Inc.
+  </text>
+</svg>
+ <!-- <h1>My Website</h1>-->
+  <p>A <b>Sharma</b> Enterprise.</p>
+</div>
+
+<div class="navbar">
+  <a href="index.html" >Home</a>
+  <a href="trade.html" >Trade</a>
+  <a href="about.html" class="active">About Us</a>
+  <a href="cart.html" class="right">Cart</a>
+</div>
+
+
+  <div class="main">
+    <h2>what is Gold, Inc.</h2>
+    <h5>Gold, Inc. Description, Dec 7, 2017</h5>
+    
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Gold, Inc. is a trading firm which allows buyers to buy gold bar certificates. This means, Gold, inc. will send you certificates which have a monetrary value. For example, if you invest £55, you will get a 1g Gold Certificate. You may decide to trade your certificate by waiting for the price to go up.</p>
+    
+    <p>When you do wish to liquidate, we have 1.2% service fee. This fee goes to The <b><a href="http://the-sharma-foundation.brianle1301.now.sh/">Sharma</a></b> Foundation.</p>
+    <br>
+   
+</div>
+
+<div class="footer">
+  <h2>Footer</h2>
+  
+</div>
+
+</body>
+</html>
